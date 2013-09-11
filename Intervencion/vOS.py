@@ -5,7 +5,7 @@ from models import ObraSocial
 
 def listado(request):
 	latest_ObraSocial_list = ObraSocial.objects.all().order_by('nombre')
-	return render_to_response('obraSocial.html',{'latest_ObraSocial_list': latest_ObraSocial_list,})
+	return render_to_response('ObraSocial.html',{'latest_ObraSocial_list': latest_ObraSocial_list,})
 
 
 def add(request):
