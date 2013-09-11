@@ -30,3 +30,7 @@ def edit(request, paciente_id):
                               {'paciente_form': form,
                                'paciente_id': paciente_id},
                               context_instance=RequestContext(request))   
+
+def delete(request, paciente_id):
+    c = Paciente.objects.get(pk=paciente_id).delete()
+    return redirect(pacientes)
