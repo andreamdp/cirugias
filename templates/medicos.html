@@ -1,0 +1,30 @@
+
+<h1>Médicos</h1>
+<div align="center">
+<button><a href="/medico_add/">+ Agregar Médico</a></button></div>
+{% if latest_medico_list %}
+    <table border=1>
+        <tr>
+          <th>Nombre</th>
+          <th>Acción</th>
+            
+        </tr>
+        {% for medico in latest_medico_list %} 
+        <tr>
+         
+          <td>
+            <a href="/medico_edit/{{ medico.id }}/">
+      {{ medico.nombre }}
+      </a>
+          </td>
+          <td>
+            <a href="/medico_edit/{{ medico.id }}/">editar</a></td>
+      <td><b><a href="/medico_delete/{{ medico.id }}/">eliminar</a></b> </td>      
+        </tr>
+        {% endfor %}    
+    </table>
+
+{% else %}
+    <p>No hay profesionales cargados.</p>
+{% endif %}
+<p><a href="/../">Volver</a></p>

@@ -1,0 +1,30 @@
+
+<h1>Diagnóstico</h1>
+<div align="center">
+<button><a href="/diagnostico_add/">+ Agregar Diagnóstico</a></button></div>
+{% if latest_diagnostico_list %}
+    <table border=1>
+        <tr>
+          <th>Nombre</th>
+          <th>Acción</th>
+            
+        </tr>
+        {% for diagnostico in latest_diagnostico_list %} 
+        <tr>
+         
+          <td>
+            <a href="/diagnostico_edit/{{ diagnostico.id }}/">
+      {{ diagnostico.nombre }}
+      </a>
+          </td>
+          <td>
+            <a href="/diagnostico_edit/{{ diagnostico.id }}/">editar</a></td>
+      <td><b><a href="/diagnostico_delete/{{ diagnostico.id }}/">eliminar</a></b> </td>      
+        </tr>
+        {% endfor %}    
+    </table>
+
+{% else %}
+    <p>No hay diagnósticos cargados.</p>
+{% endif %}
+<p><a href="/../">Volver</a></p>

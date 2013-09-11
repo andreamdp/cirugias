@@ -1,0 +1,29 @@
+
+ 
+<title>Sistema de Cirugías</title>
+<h1>Editar Diagnostico</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<body style="background-color:FFFFCC;">
+     
+<form action="/diagnostico_edit/{{ diagnostico_id }}/" method="post">
+{% csrf_token %}
+
+{{ diagnostico_form }}
+	<TABLE BORDER=1 WIDTH=300>
+<tr></tr>
+<tr>
+<TD WIDTH=100>
+<input type="submit" value="Guardar" />
+</TD>
+</tr>
+
+</TABLE>
+
+
+</form>
+
+
+
+</body>

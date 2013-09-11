@@ -1,0 +1,38 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/estilo.css" />
+<titulo>Agregar VCC</titulo>
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action="/vcc_add/" method="post">
+{% csrf_token %}
+
+ <STYLE type="text/css">
+  t1 { text-align: center}
+ </STYLE>
+ 
+<table>
+	<tr>
+	<td>Estudio Nº: {{ vcc_form.nroEstudio }}</td>
+	<td>Fecha: {{ vcc_form.fecha }}</td>
+	<td>Hora: {{ vcc_form.hora}}</td>
+	</tr></table>
+	<table>
+	<tr><td WIDTH=705 ><t1>Paciente: {{ vcc_form.paciente}} <A HREF="/paciente_add/"></t1><butto><b>+</b></butto></A></td></tr></table>
+	<tr><td WIDTH=705 ><t1>OS: {{ vcc_form.obraSocial}} <A HREF="/obraSocial_add/"></t1><butto><b>+</b></butto></A></td></tr>
+	<table style="background-color:blue;color: black; font: Helvetica 12pt;border: 1px solid black;">
+	<tr><td style="background-color:blue;">Diagnóstico 1: {{ vcc_form.diagnostico1}}</td> <td>Diagnóstico 2: {{ vcc_form.diagnostico2}}</td>
+	<td><button><a href="/diagnostico_add/">Agregar Diagnóstico</a></button></td></tr>
+	
+	<tr><td>Diagnóstico 3: {{ vcc_form.diagnostico3}}</td> <td>Diagnóstico 4: {{ vcc_form.diagnostico4}}</td></tr>
+	</table>
+	
+	
+
+
+<table>
+	hh
+</table>
+<input type="submit" value="Guardar" />
+</form>
+
+<p><a href="/../">Volver</a></p>

@@ -1,0 +1,12 @@
+
+<h1>Agregar Obra Social</h1>
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action="/obraSocial_add/" method="post">
+{% csrf_token %}
+<table>
+{{ obraSocial_form.as_table }}
+</table>
+<input type="submit" value="Guardar" />
+</form>
+<p><a href="/../">Volver</a></p>

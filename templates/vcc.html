@@ -1,0 +1,29 @@
+
+<titulo>Vcc</titulo>
+<div align="center">
+<button><a href="/vcc_add/">+ Agregar Vcc</a></button></div>
+{% if latest_vcc_list %}
+    <table border=1>
+        <tr>
+          <th>Nombre</th>
+          <th>Acción</th>
+            
+        </tr>
+        {% for vcc in latest_vcc_list %} 
+        <tr>
+         
+          <td>
+            <a href="/vcc_edit/{{ vcc.id }}/">
+      {{ medico.nombre }}
+      </a>
+          </td>
+          <td>
+            <a href="/vcc_edit/{{ vcc.id }}/">editar</a></td>
+      <td><b><a href="/vcc_delete/{{ vcc.id }}/">eliminar</a></b> </td>      
+        </tr>
+        {% endfor %}    
+    </table>
+
+{% else %}
+    <p>No hay vcc's cargados.</p>
+{% endif %}
