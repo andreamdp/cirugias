@@ -32,6 +32,7 @@ urlpatterns = patterns('',
     url(r'^direccion_add/$', vDireccion.add),
     url(r'direcciones/$', vDireccion.listado),
     url(r'^direccion_delete/(?P<direccion_id>\d+)/$',vDireccion.eliminar),
+    url(r'^obraSocial/$', vOS.listado),
     url(r'^obraSocial_add/$', vOS.add),
     
     url(r'^admin/', include(admin.site.urls)),

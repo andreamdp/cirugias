@@ -1,0 +1,30 @@
+
+<h1>Obras Sociales</h1>
+<div align="center">
+<button><a href="/obraSocial_add/">+ Agregar Obra Social</a></button></div>
+{% if latest_ObraSocial_list %}
+    <table border=1>
+        <tr>
+          <th>Nombre</th>
+          <th>Acción</th>
+            
+        </tr>
+        {% for os in latest_ObraSocial_list %} 
+        <tr>
+         
+          <td>
+            
+      {{ medico.nombre }}
+      </a>
+          </td>
+          <td>
+            
+      
+        </tr>
+        {% endfor %}    
+    </table>
+
+{% else %}
+    <p>No hay Obras Sociales cargadas.</p>
+{% endif %}
+<p><a href="/../">Volver</a></p>
