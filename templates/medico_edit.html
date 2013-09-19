@@ -1,29 +1,25 @@
-
+ {% extends "admin/base_site.html" %}
  
-<title>Temper</title>
+ {% block content %}<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/custom_admin.css" />
+
 <h1>Editar Médico</h1>
 
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 
-<body style="background-color:green;">
-     
-<form action="/medico_edit/{{ medico_id }}/" method="post">
-{% csrf_token %}
-
-{{ medico_form }}
+<body>
+    <div id="center">
+	<form action="/medico_edit/{{ medico_id }}/" method="post">
+	{% csrf_token %}
 	<TABLE BORDER=1 WIDTH=300>
-<tr></tr>
-<tr>
-<TD WIDTH=100>
-<input type="submit" value="Guardar" />
-</TD>
-</tr>
+		<tr>		{{ medico_id }} - <b>Nombre: </b> {{ medico_form.nombre }}		</tr>
+	<tr>
+	
+	 <input type="submit" value="Guardar" /></tr>
+	</TABLE>
 
-</TABLE>
-
-
-</form>
-
+	</form>
+	</div>
 
 
 </body>
+{% endblock %}

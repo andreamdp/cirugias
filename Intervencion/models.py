@@ -17,10 +17,9 @@ class Paciente(models.Model):
     def __unicode__(self):
         return self.apellido + ", " + self.nombre
 class Medico(models.Model):
-    codigo = models.IntegerField(unique = True, null=False, blank=False)
     nombre = models.CharField(max_length = 40)
     def __unicode__(self):
-        return self.nombre
+        return str(self.id)
         
 from grid import Grid
 
@@ -37,7 +36,7 @@ class ObraSocial(models.Model):
      codigo = models.IntegerField(unique = True, null=False, blank=False)
      nombre = models.CharField(max_length= 50)
      def __unicode__(self):
-        return self.nombre(self.codigo)
+        return self.nombre+str(self.codigo)
         
 class TipoPreparacion(models.Model):
      codigo = models.IntegerField(unique = True, null=False, blank=False)
@@ -55,16 +54,20 @@ class Terapeutica(models.Model):
      codigo = models.IntegerField(unique = True, null=False, blank=False)
      nombre = models.CharField(max_length= 50)
 
+sexo_choice = (
+    (1,'Femenino'),
+    (2,'Maculino'),
+)
 class VCC(models.Model):
     nroEstudio = models.IntegerField(unique = True, null=False, blank=False)
     paciente = models.ForeignKey(Paciente, related_name = '+')
-    fecha = models.DateField()
+    fecha = models.DateTimeField()
     hora = models.TimeField()
     internado = models.BooleanField()
     sedacion = models.BooleanField()
     tiempoTotal = models.SmallIntegerField() 
     tiempoRetirada = models.SmallIntegerField()
-    sexo = models.SmallIntegerField()
+    sexo = models.SmallIntegerField(choices=sexo_choice)
     ObraSocial= models.ForeignKey(ObraSocial, related_name = '+')
     solicitante = models.CharField(max_length = 50)
     endoscopista = models.ForeignKey(Medico)
@@ -86,7 +89,7 @@ class VCC(models.Model):
     terapeutica = models.ForeignKey(Terapeutica, related_name = "+")
     biopsia = models.BooleanField()
     marcacionTinta = models.BooleanField()
-    comentario = models.TextField()
+    comentario = models.TextField(null=True)
     
 
 
@@ -105,3 +108,10 @@ class PhoneNo(models.Model):
         return self.phone_no
     
     
+
+
+class Complicacion(models.Model):
+    codigo = models.IntegerField(unique = True)
+    nombre = models.CharField(max_length = 60)
+    def __unicode__(self):
+        return (self.codigo) + self.nombre

@@ -1,7 +1,7 @@
 from django import forms
 from models import Medico, VCC, Diagnostico, Paciente, Medico, Direccion, ObraSocial
 from django.forms import ModelForm
-
+from django.contrib.admin import widgets
 from django.forms import ModelForm
 from models import Contact, PhoneNo
 
@@ -13,6 +13,10 @@ class MedicoForm(ModelForm):
 class VCCForm(ModelForm):
     class Meta:
         model = VCC
+        
+    def __init__(self, *args, **kwargs):
+        super(VCCForm, self).__init__(*args, **kwargs)
+        self.fields['fecha'].widget = widgets.AdminDateWidget()
         
 class PhoneNoForm(ModelForm):
     class Meta:

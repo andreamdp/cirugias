@@ -21,7 +21,7 @@ def view(request):
  )
  
 def medicos(request):
-	latest_medico_list = Medico.objects.all().order_by('nombre')
+	latest_medico_list = Medico.objects.all().order_by('id')
 	return render_to_response('medicos.html',{'latest_medico_list': latest_medico_list,})
 
 def medico_add(request):
@@ -29,7 +29,7 @@ def medico_add(request):
 	if form.is_valid():
 		cmodel = form.save()
 		cmodel.save()
-		return redirect(medicos)
+		#return redirect(medicos)
 	return render_to_response('medico_add.html',{'medico_form': form}, context_instance=RequestContext(request))
 
 

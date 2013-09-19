@@ -1,0 +1,47 @@
+ {% extends "admin/base_site.html" %}
+{% block extrastyle %}
+<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/custom_admin.css" />
+
+{% endblock %}
+
+{% block content %}
+<head><meta http-equiv="refresh" content="15" >
+
+
+</head>
+<uuh1>Médicos</uuh1>
+<div align="center">
+
+
+ <iframe src="/medico_add/" width="900" height="220">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+
+
+{% if latest_medico_list %}
+    <table border=1>
+        <tr>
+          <th>id</th>
+          <th>Nombre</th>
+          <th>Acción</th>
+            
+        </tr>
+        {% for medico in latest_medico_list %} 
+        <tr>
+         <td><b> {{medico.id}}</b></td>
+          <td>
+            <a href="/medico_edit/{{ medico.id }}/">
+      {{ medico.nombre }}
+      </a>
+          </td>
+          <td>
+            <a href="/medico_edit/{{ medico.id }}/">editar</a>      <b><a href="/medico_delete/{{ medico.id }}/">eliminar</a></b> </td>      
+        </tr>
+        {% endfor %}    
+    </table>
+
+{% else %}
+    <p>No hay profesionales cargados.</p>
+{% endif %}
+<p><a href="/../">Volver</a></p>
+{% endblock %}

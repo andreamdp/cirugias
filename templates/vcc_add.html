@@ -1,8 +1,11 @@
-<html xmlns="http://www.w3.org/1999/xhtml">
+{% extends "admin/base_site.html" %}
+
 <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/estilo.css" />
 <titulo>Agregar VCC</titulo>
-{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 
+{% block content %}
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 <form action="/vcc_add/" method="post">
 {% csrf_token %}
 
@@ -17,22 +20,54 @@
 	<td>Hora: {{ vcc_form.hora}}</td>
 	</tr></table>
 	<table>
-	<tr><td WIDTH=705 ><t1>Paciente: {{ vcc_form.paciente}} <A HREF="/paciente_add/"></t1><butto><b>+</b></butto></A></td></tr></table>
-	<tr><td WIDTH=705 ><t1>OS: {{ vcc_form.obraSocial}} <A HREF="/obraSocial_add/"></t1><butto><b>+</b></butto></A></td></tr>
+    <script type="text/javascript" src="/admin/jsi18n/"></script>
+<script type="text/javascript" src="/media/admin/js/core.js"></script>
+<script type="text/javascript"
+src="/media/admin/js/admin/RelatedObjectLookups.js"></script>
+Y despues
+{{ form.media }}
+	<tr><td WIDTH=705 ><t1>Paciente: {{ vcc_form.paciente}} <A HREF="/paciente_add/"></t1><butto><b>+</b></butto></A></td>
+	<td>Sexo: {{ vcc_form.sexo}} </td>
+	</tr></table>
+	<tr><td WIDTH=705 ><t1>OS: {{ vcc_form.ObraSocial}} <A HREF="/obraSocial_add/"></t1><butto><b>+</b></butto></A></td></tr>
 	<table style="background-color:blue;color: black; font: Helvetica 12pt;border: 1px solid black;">
 	<tr><td style="background-color:blue;">Diagnóstico 1: {{ vcc_form.diagnostico1}}</td> <td>Diagnóstico 2: {{ vcc_form.diagnostico2}}</td>
 	<td><button><a href="/diagnostico_add/">Agregar Diagnóstico</a></button></td></tr>
-	
+	<tr><td WIDTH=705 ><t1>Endoscopista: {{ vcc_form.endoscopista}} <A HREF="/medico_add/"></t1><butto><b>+</b></butto></A></td></tr></table>
 	<tr><td>Diagnóstico 3: {{ vcc_form.diagnostico3}}</td> <td>Diagnóstico 4: {{ vcc_form.diagnostico4}}</td></tr>
+	</table>
+	<table>
+	<tr><td>Tiempo Total:{{ vcc_form.tiempoTotal}}</td> <td>Tiempo de Retirada:{{ vcc_form.tiempoRetirada}}</td></tr>
+	
+	</table>
+	<table>
+	<tr><td WIDTH=705 ><t1>Complicación: {{ vcc_form.complicacion}} </td></tr>
+	<tr><td WIDTH=705 ><t1>Tipo de Preparación: {{ vcc_form.tipoPreparacion}} <A HREF="/admin/Intervencion/tipopreparacion/add/"></t1><butto><b>+</b></butto></A></td></tr>
+	<tr><td WIDTH=705 ><t1>Extensión Anatómica: {{ vcc_form.extensionAnatomica}} <A HREF="/admin/Intervencion/extensionanatomica/add/"></t1><butto><b>+</b></butto></A></td></tr>
+	<tr><td WIDTH=705 ><t1>Hallazgo: {{ vcc_form.hallazgo}} </td></tr>
+	<tr><td WIDTH=705 ><t1>Terapéutica: {{ vcc_form.terapeutica}} <A HREF="/admin/Intervencion/terapeutica/add/"></t1><butto><b>+</b></butto></A></td></tr>
+	<tr><td WIDTH=705 ><t1>Comentario: {{ vcc_form.comentario}} </td></tr>
+	</table>
+	
+	
+	<table>
+	<tr><td WIDTH=705 ><t1>Solicitante: {{ vcc_form.solicitante}} </td></tr>
+	<tr><td WIDTH=705 ><t1>Endoscopista: {{ vcc_form.endoscopista}} </td></tr>
+	<tr><td WIDTH=705 ><t1>Anestesista: {{ vcc_form.anestesista}} </td></tr>
+	<tr><td WIDTH=705 ><t1>Asistente: {{ vcc_form.asistente}} </td></tr>
+	<tr><td WIDTH=705 ><t1>Motivo: {{ vcc_form.motivo}} </td></tr>
+	<tr><td WIDTH=705 ><t1>Tacto: {{ vcc_form.tacto}} </td></tr>
+	<tr><td WIDTH=705 ><t1>Boston: {{ vcc_form.boston}} </td></tr>
 	</table>
 	
 	
 
 
 <table>
-	hh
+	
 </table>
 <input type="submit" value="Guardar" />
 </form>
 
 <p><a href="/../">Volver</a></p>
+{% endblock %}

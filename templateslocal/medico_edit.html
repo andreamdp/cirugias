@@ -1,0 +1,32 @@
+
+ 
+<title>Temper</title>
+<h1>Editar Médico</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<body style="background-color:green;">
+     
+<form action="/medico_edit/{{ medico_id }}/" method="post">
+{% csrf_token %}
+
+	<TABLE BORDER=1 WIDTH=300>
+<tr>
+
+{{ medico_id }} - {{ medico_form.nombre }}
+
+</tr>
+<tr>
+<TD WIDTH=100>
+<input type="submit" value="Guardar" />
+</TD>
+</tr>
+
+</TABLE>
+
+
+</form>
+
+
+
+</body>

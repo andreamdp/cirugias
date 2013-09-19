@@ -1,0 +1,43 @@
+ {% extends "admin/base_site.html" %}
+<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/custom_admin.css" />
+{% block content %}
+<script language="javascript" type="text/javascript">
+function fnSwitch(){
+alert("wwww");
+document.iframe1.style.visibility="hidden";
+document.iframe2.style.display="block";
+
+}
+
+function fnSwitchback(){
+document.iframe1.style.display="block";
+document.iframe2.style.display="none";
+}
+
+</script>
+ <body>
+<h1>Agregar Médico</h1>
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action="/medico_add/" method="post">
+{% csrf_token %}
+<table>
+{{ medico_form.as_table }}
+</table>
+<input type="submit" value="Guardar" />
+</form>
+
+<div id="container">
+  
+      
+   <!-- <button onclick='fnSwitch()'>Switch</button> !-->
+    
+       
+
+ 
+
+</div>
+ </body>
+{% endblock %}
+<!-- #EndTemplate -->
+ 

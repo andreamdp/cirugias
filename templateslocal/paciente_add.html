@@ -1,0 +1,22 @@
+
+<h1>Agregar Paciente</h1>
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action="/paciente_add/" method="post">
+{% csrf_token %}
+
+
+
+<table style="background-color:pink;color: black; font: Helvetica 12pt;border: 1px solid black;">
+	<tr><td >Apellido: {{ paciente_form.apellido }}  </td>
+	<td >Nombre: {{ paciente_form.nombre }}  </td> </tr>
+	<tr><td >Historia Clínica: {{ paciente_form.historiaClinica }}  </td> <td >Fecha Nacimiento: {{ paciente_form.fechaNacimiento }}  </td> </tr>
+	<tr><td >Teléfono: {{ paciente_form.telefono }}  </td> <td >Dirección: {{ paciente_form.direccion }}  </td> </tr>
+	
+    
+   
+	<tr></tr>
+</table>
+<p></p>
+<input type="submit" value="Guardar" />
+</form>

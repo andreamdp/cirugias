@@ -1,0 +1,30 @@
+
+<h1>Complicacion</h1>
+<div align="center">
+<button><a href="/complicacion_add/">+ Agregar Complicación</a></button></div>
+{% if latest_complicacion_list %}
+    <table border=1>
+        <tr>
+          <th>Nombre</th>
+          <th>Acción</th>
+            
+        </tr>
+        {% for complicacion in latest_complicacion_list %} 
+        <tr>
+         
+          <td>
+            <a href="/complicacion_edit/{{ complicacion.id }}/">
+      {{ complicacion.nombre }}
+      </a>
+          </td>
+          <td>
+            <a href="/complicacion_edit/{{ complicacion.id }}/">editar</a></td>
+      <td><b><a href="/complicacion_delete/{{ complicacion.id }}/">eliminar</a></b> </td>      
+        </tr>
+        {% endfor %}    
+    </table>
+
+{% else %}
+    <p>No hay complicaciones cargadas.</p>
+{% endif %}
+<p><a href="/../">Volver</a></p>
