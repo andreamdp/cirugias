@@ -1,23 +1,17 @@
  {% extends "admin/base_site.html" %}
- 
-{% block extrastyle %}
+ {% block extrastyle %}
 <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/custom_admin.css" />
-
 {% endblock %}
 
 {% block content %}
-                   
+                  
 <head><meta http-equiv="refresh" content="15" ></head>
 <h1>Médicos</h1>	
-
-
-
-
 
 <div id="container">
 <div id="right" ><img src="{{ MEDIA_URL }}/static/medico.jpg" />
  <iframe src="/medico_add/" width="900" height="140" frameBorder="0">
-  <p>Your browser does not support iframes.</p>
+  <p>El navegador no soporta frames</p>
 </iframe>
 </div>   
    <div id="center">
@@ -38,15 +32,11 @@
       </a>
           </td>
           <td>
-            <a href="/medico_edit/{{ medico.id }}/">editar</a>      <b><a href="/medico_delete/{{ medico.id }}/">eliminar</a></b> </td>      
+            <a href="/medico_edit/{{ medico.id }}/"><img src="{{ MEDIA_URL }}/static/admin/img/icon_changelink.gif " />  </a>       <b><a href="/medico_delete/{{ medico.id }}/"><img src="{{ MEDIA_URL }}/static/admin/img/icon_deletelink.gif" />  </a></b> </td>      
         </tr>
         {% endfor %}    
     </table>
-    {% block result_list %}
-         
-        uno dos
-        tres
-      {% endblock %}
+    
 {% else %}
     <p>No hay profesionales cargados.</p>
 {% endif %}

@@ -5,7 +5,7 @@
 body {
     margin: 0;
     padding: 0;
-    font-size: 12px;
+    font-size: 15px;
     font-family: "Lucida Grande","DejaVu Sans","Bitstream Vera Sans",Verdana,Arial,sans-serif;
     color: #333;
     background: #fff;
@@ -244,8 +244,8 @@ table {
 }
 
 td, th {
-    font-size: 11px;
-    line-height: 13px;
+    font-size: 15px;
+    line-height: 23px;
     border-bottom: 1px solid #eee;
     vertical-align: top;
     padding: 5px;
@@ -421,7 +421,7 @@ textarea {
 }
 
 input[type=text], input[type=password], textarea, select, .vTextField {
-    border: 1px solid #ccc;
+    border: 1px solid #43c4ef;
 }
 
 /* FORM BUTTONS */
@@ -862,5 +862,5 @@ table#change-history tbody th {
 #right {
     float:right;
     width:200px;
-    position:absolute; right: 100px;
+    position:absolute; right: 250px;
 }

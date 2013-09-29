@@ -1,6 +1,17 @@
+<style>
+
+div1{ 
+  background-image: url("/static/images/eliminar.png");
+  background-attachment: fixed;
+  background-position: 100% 0%;
+  background-repeat: no-repeat;
+} 
+
+</style>
 
 <h1>Diagnóstico</h1>
 <div align="center">
+	 <div1>lll    </div1>
 <button><a href="/diagnostico_add/">+ Agregar Diagnóstico</a></button></div>
 {% if latest_diagnostico_list %}
     <table border=1>
@@ -19,7 +30,8 @@
           </td>
           <td>
             <a href="/diagnostico_edit/{{ diagnostico.id }}/">editar</a></td>
-      <td><b><a href="/diagnostico_delete/{{ diagnostico.id }}/">eliminar</a></b> </td>      
+           
+      <td><b><a href="/diagnostico_delete/{{ diagnostico.id }}/">eliminar</a></b> </td>  
         </tr>
         {% endfor %}    
     </table>

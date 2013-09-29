@@ -13,50 +13,49 @@
   t1 { text-align: center}
  </STYLE>
  
-<table>
+<table style="width=100%">
 	<tr>
 	<td>Estudio Nº: {{ vcc_form.nroEstudio }}</td>
 	<td>Fecha: {{ vcc_form.fecha }}</td>
-	<td>Hora: {{ vcc_form.hora}}</td>
-	</tr></table>
-	<table>
-    <script type="text/javascript" src="/admin/jsi18n/"></script>
-<script type="text/javascript" src="/media/admin/js/core.js"></script>
-<script type="text/javascript"
-src="/media/admin/js/admin/RelatedObjectLookups.js"></script>
-Y despues
-{{ form.media }}
-	<tr><td WIDTH=705 ><t1>Paciente: {{ vcc_form.paciente}} <A HREF="/paciente_add/"></t1><butto><b>+</b></butto></A></td>
+	<td>Hora: {{ vcc_form.hora}}</td><td style="width:5%"></td>
+	<td>Tiempo Total:{{ vcc_form.tiempoTotal}}</td> <td>Tiempo de Retirada:{{ vcc_form.tiempoRetirada}}</td>
+	</tr>
+	
+	<tr><td align="left">Paciente: {{ vcc_form.paciente}} <A HREF="/paciente_add/"><b>+</b></A></td>
 	<td>Sexo: {{ vcc_form.sexo}} </td>
-	</tr></table>
-	<tr><td WIDTH=705 ><t1>OS: {{ vcc_form.ObraSocial}} <A HREF="/obraSocial_add/"></t1><butto><b>+</b></butto></A></td></tr>
-	<table style="background-color:blue;color: black; font: Helvetica 12pt;border: 1px solid black;">
-	<tr><td style="background-color:blue;">Diagnóstico 1: {{ vcc_form.diagnostico1}}</td> <td>Diagnóstico 2: {{ vcc_form.diagnostico2}}</td>
-	<td><button><a href="/diagnostico_add/">Agregar Diagnóstico</a></button></td></tr>
-	<tr><td WIDTH=705 ><t1>Endoscopista: {{ vcc_form.endoscopista}} <A HREF="/medico_add/"></t1><butto><b>+</b></butto></A></td></tr></table>
-	<tr><td>Diagnóstico 3: {{ vcc_form.diagnostico3}}</td> <td>Diagnóstico 4: {{ vcc_form.diagnostico4}}</td></tr>
-	</table>
-	<table>
-	<tr><td>Tiempo Total:{{ vcc_form.tiempoTotal}}</td> <td>Tiempo de Retirada:{{ vcc_form.tiempoRetirada}}</td></tr>
+	<td>OS: {{ vcc_form.ObraSocial}} <A HREF="/obraSocial_add/"><b>+</b></A></td></tr>
 	
+	<table align="left"; style="background-color:#736AFF;color: black; font: Helvetica 12pt;border: 1px solid black;">
+	<tr><td align="left"; style="width:20%">Diagnóstico 1: {{ vcc_form.diagnostico1}}</td> <td style="width:20%">Diagnóstico 2: {{ vcc_form.diagnostico2}}</td>
+	<td align="left" style="width:20%">Diagnóstico 3: {{ vcc_form.diagnostico3}}</td> <td align="left" style="width:20%">Diagnóstico 4: {{ vcc_form.diagnostico4}}</td>
+	<td  style="width:5%"> <button><a href="/diagnostico_add/">Agregar Diagnóstico</a></button></td></tr>
 	</table>
-	<table>
-	<tr><td WIDTH=705 ><t1>Complicación: {{ vcc_form.complicacion}} </td></tr>
-	<tr><td WIDTH=705 ><t1>Tipo de Preparación: {{ vcc_form.tipoPreparacion}} <A HREF="/admin/Intervencion/tipopreparacion/add/"></t1><butto><b>+</b></butto></A></td></tr>
-	<tr><td WIDTH=705 ><t1>Extensión Anatómica: {{ vcc_form.extensionAnatomica}} <A HREF="/admin/Intervencion/extensionanatomica/add/"></t1><butto><b>+</b></butto></A></td></tr>
-	<tr><td WIDTH=705 ><t1>Hallazgo: {{ vcc_form.hallazgo}} </td></tr>
-	<tr><td WIDTH=705 ><t1>Terapéutica: {{ vcc_form.terapeutica}} <A HREF="/admin/Intervencion/terapeutica/add/"></t1><butto><b>+</b></butto></A></td></tr>
-	<tr><td WIDTH=705 ><t1>Comentario: {{ vcc_form.comentario}} </td></tr>
-	</table>
-	
+	<table align="left"; style="color: black; font: Helvetica 12pt;">
+	<tr><td align="left"; style="width:25%">Endoscopista: {{ vcc_form.endoscopista}} <A style="color:white;" HREF="/medico_add/"><b>+</b></A></td>
+	<td align="center"; style="width:25%">Solicitante: {{ vcc_form.solicitante}} </td>
+	<td align="center"; style="width:25%">Anestesista: {{ vcc_form.anestesista}} </td>
+	<td align="right"; style="width:25%">Asistente: {{ vcc_form.asistente}} </td></tr>
 	
 	<table>
-	<tr><td WIDTH=705 ><t1>Solicitante: {{ vcc_form.solicitante}} </td></tr>
-	<tr><td WIDTH=705 ><t1>Endoscopista: {{ vcc_form.endoscopista}} </td></tr>
-	<tr><td WIDTH=705 ><t1>Anestesista: {{ vcc_form.anestesista}} </td></tr>
-	<tr><td WIDTH=705 ><t1>Asistente: {{ vcc_form.asistente}} </td></tr>
-	<tr><td WIDTH=705 ><t1>Motivo: {{ vcc_form.motivo}} </td></tr>
-	<tr><td WIDTH=705 ><t1>Tacto: {{ vcc_form.tacto}} </td></tr>
+	
+	
+	</table>
+	<table>
+	<tr><td align="left"; style="width:5%">Complicación: {{ vcc_form.complicacion}} </td>
+	<td style="width:5%">Tipo de Preparación: {{ vcc_form.tipoPreparacion}} <A HREF="/admin/Intervencion/tipopreparacion/add/"><b>+</b></A></td>
+	<td style="width:5%">Extensión Anatómica: {{ vcc_form.extensionAnatomica}} <A HREF="/admin/Intervencion/extensionanatomica/add/"><b>+</b></A></td>
+	<td style="width:5%">Terapéutica: {{ vcc_form.terapeutica}} <A HREF="/admin/Intervencion/terapeutica/add/"><b>+</b></A></td></tr>
+	<tr><td style="width:25%">Hallazgo: {{ vcc_form.hallazgo}} </td>
+	<td style="width:25%">Comentario: {{ vcc_form.comentario}} </td>
+	<td style="width:25%">Motivo: {{ vcc_form.motivo}} </td>
+	<td style="width:25%">Tacto: {{ vcc_form.tacto}} </td></tr>
+	</table>
+	
+	
+	<table>
+	
+	
+	
 	<tr><td WIDTH=705 ><t1>Boston: {{ vcc_form.boston}} </td></tr>
 	</table>
 	

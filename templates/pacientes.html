@@ -1,32 +1,50 @@
+{% extends "admin/base_site.html" %}
+ 
+{% block extrastyle %}
 
-<h1>Pacientes</h1>
-<div align="center">
-<button><a href="/paciente_add/">(+) Agregar Paciente</a></button></div>
 
+{% endblock %}
+
+{% block content %}
+                   
+<head><meta http-equiv="refresh" content="15" ></head>
+<h1>Pacientes</h1>	
+
+<div id="container">
+<div id="right" >
+ <iframe src="/paciente_add/" width="450" height="500" frameBorder="0">
+  <p>El navegador no soporta frames</p>
+</iframe>
+</div>   
+   <div style="position:absolute; left: 350px;" >
 {% if latest_paciente_list %}
     <table border=1>
         <tr>
+          <th>id</th>
           <th>Nombre</th>
           <th>Acción</th>
             
         </tr>
         {% for paciente in latest_paciente_list %} 
         <tr>
-         
+         <td><b> {{paciente.id}}</b></td>
           <td>
             <a href="/paciente_edit/{{ paciente.id }}/">
-      {{ paciente.nombre }}
+      {{ paciente.apellido }}, {{paciente.nombre}}
       </a>
           </td>
           <td>
-            <a href="/paciente_edit/{{ paciente.id }}/">editar</a></td>
-      <td><b><a href="/paciente_delete/{{ paciente.id }}/">eliminar</a></b> </td>      
+            <a href="/paciente_edit/{{ paciente.id }}/"><img src="{{ MEDIA_URL }}/static/admin/img/icon_changelink.gif " />  </a>       <b><a href="/medico_delete/{{ paciente.id }}/"><img src="{{ MEDIA_URL }}/static/admin/img/icon_deletelink.gif" />  </a></b> </td>      
         </tr>
         {% endfor %}    
     </table>
-
+    
 {% else %}
     <p>No hay pacientes cargados.</p>
 {% endif %}
-<p><a href="/../">Volver</a></p>
-<!--#include file="footer.html" -->
+
+</div>
+</div>
+
+
+ {% endblock %}

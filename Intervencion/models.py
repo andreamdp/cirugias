@@ -1,3 +1,4 @@
+# -*- encoding: utf-8 -*-
 from django.db import models
 
 class Direccion(models.Model):
@@ -19,7 +20,7 @@ class Paciente(models.Model):
 class Medico(models.Model):
     nombre = models.CharField(max_length = 40)
     def __unicode__(self):
-        return str(self.id)
+        return str(0)
         
 from grid import Grid
 
@@ -36,24 +37,29 @@ class ObraSocial(models.Model):
      codigo = models.IntegerField(unique = True, null=False, blank=False)
      nombre = models.CharField(max_length= 50)
      def __unicode__(self):
-        return self.nombre+str(self.codigo)
+        return self.nombre+"("+str(self.codigo)+")"
         
 class TipoPreparacion(models.Model):
      codigo = models.IntegerField(unique = True, null=False, blank=False)
      nombre = models.CharField(max_length= 50)
-
+     def __unicode__(self):
+        return str(self.nombre)
 class ExtensionAnatomica(models.Model):
      codigo = models.IntegerField(unique = True, null=False, blank=False)
      nombre = models.CharField(max_length= 50)
-     
+     def __unicode__(self):
+        return str(self.nombre)
 class Complicacion(models.Model):
      codigo = models.IntegerField(unique = True, null=False, blank=False)
      nombre = models.CharField(max_length= 50)
+     def __unicode__(self):
+        return str(self.nombre)
 
 class Terapeutica(models.Model):
      codigo = models.IntegerField(unique = True, null=False, blank=False)
      nombre = models.CharField(max_length= 50)
-
+     def __unicode__(self):
+        return str(self.nombre)
 sexo_choice = (
     (1,'Femenino'),
     (2,'Maculino'),
@@ -61,7 +67,7 @@ sexo_choice = (
 class VCC(models.Model):
     nroEstudio = models.IntegerField(unique = True, null=False, blank=False)
     paciente = models.ForeignKey(Paciente, related_name = '+')
-    fecha = models.DateTimeField()
+    fecha = models.DateField()
     hora = models.TimeField()
     internado = models.BooleanField()
     sedacion = models.BooleanField()
@@ -92,6 +98,9 @@ class VCC(models.Model):
     comentario = models.TextField(null=True)
     
 
+class VCC_Indicacion(models.Model):
+	codigo = models.IntegerField(unique = True)
+	nombre = models.CharField(max_length = 50)
 
 class Contact(models.Model):
     name = models.CharField(max_length=80)

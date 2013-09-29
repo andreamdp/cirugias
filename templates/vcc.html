@@ -1,5 +1,7 @@
-
+ {% extends "admin/base_site.html" %}
 <titulo>Vcc</titulo>
+
+{% block content %}
 <div align="center">
 <button><a href="/vcc_add/">+ Agregar Vcc</a></button></div>
 {% if latest_vcc_list %}
@@ -18,7 +20,7 @@
       </a>
           </td>
           <td>
-            <a href="/vcc_edit/{{ vcc.id }}/">editar</a></td>
+            <a href="/Intervencion/vcc/{{ vcc.id }}/">editar</a></td>
       <td><b><a href="/vcc_delete/{{ vcc.id }}/">eliminar</a></b> </td>      
         </tr>
         {% endfor %}    
@@ -27,3 +29,4 @@
 {% else %}
     <p>No hay vcc's cargados.</p>
 {% endif %}
+ {% endblock %}

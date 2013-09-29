@@ -17,10 +17,9 @@ class Paciente(models.Model):
     def __unicode__(self):
         return self.apellido + ", " + self.nombre
 class Medico(models.Model):
-    codigo = models.IntegerField(unique = True, null=False, blank=False)
     nombre = models.CharField(max_length = 40)
     def __unicode__(self):
-        return str(self.id)
+        return str(self.nombre)
         
 from grid import Grid
 
@@ -37,24 +36,32 @@ class ObraSocial(models.Model):
      codigo = models.IntegerField(unique = True, null=False, blank=False)
      nombre = models.CharField(max_length= 50)
      def __unicode__(self):
-        return self.nombre+str(self.codigo)
+        return self.nombre+"("+str(self.codigo)+")"
         
 class TipoPreparacion(models.Model):
      codigo = models.IntegerField(unique = True, null=False, blank=False)
      nombre = models.CharField(max_length= 50)
-
+     def __unicode__(self):
+        return str(self.nombre)
 class ExtensionAnatomica(models.Model):
      codigo = models.IntegerField(unique = True, null=False, blank=False)
      nombre = models.CharField(max_length= 50)
-     
+     def __unicode__(self):
+        return str(self.nombre)
 class Complicacion(models.Model):
      codigo = models.IntegerField(unique = True, null=False, blank=False)
      nombre = models.CharField(max_length= 50)
+     def __unicode__(self):
+        return str(self.nombre)
 
 class Terapeutica(models.Model):
      codigo = models.IntegerField(unique = True, null=False, blank=False)
      nombre = models.CharField(max_length= 50)
 
+sexo_choice = (
+    (1,'Femenino'),
+    (2,'Maculino'),
+)
 class VCC(models.Model):
     nroEstudio = models.IntegerField(unique = True, null=False, blank=False)
     paciente = models.ForeignKey(Paciente, related_name = '+')
@@ -64,7 +71,7 @@ class VCC(models.Model):
     sedacion = models.BooleanField()
     tiempoTotal = models.SmallIntegerField() 
     tiempoRetirada = models.SmallIntegerField()
-    sexo = models.SmallIntegerField()
+    sexo = models.SmallIntegerField(choices=sexo_choice)
     ObraSocial= models.ForeignKey(ObraSocial, related_name = '+')
     solicitante = models.CharField(max_length = 50)
     endoscopista = models.ForeignKey(Medico)
@@ -86,7 +93,7 @@ class VCC(models.Model):
     terapeutica = models.ForeignKey(Terapeutica, related_name = "+")
     biopsia = models.BooleanField()
     marcacionTinta = models.BooleanField()
-    comentario = models.TextField()
+    comentario = models.TextField(null=True)
     
 
 

@@ -2,9 +2,18 @@
 {% load i18n %}
 
 {% block title %} Sistema de Cirugías  {% endblock %}
-
+{% block breadcrumbs %}
+    <div class="breadcrumbs">
+	<tr>
+    <td><a href="/../">Inicio</a></td>
+    <td><a href="/medicos/">Médicos</a></td>
+    <td><a href="/vcc/">Vcc</a></td>
+    <td><a href="/pacientes/">Pacientes</a></td>
+   </tr>
+    </div>
+    {% endblock %}
 {% block branding %}
-<h1 id="site-name"><div id="right" ><img src="{{ MEDIA_URL }}/static/emhsa.jpg" /></div> Sistema de Cirugías - Sanatorio Emhsa</h1>
+<h1 id="site-name"><div style="position:absolute; right: 30px;" ><img src="{{ MEDIA_URL }}/static/emhsa.jpg" /></div> Sistema de Cirugías - Sanatorio Emhsa</h1>
 
 {% endblock %}
 
